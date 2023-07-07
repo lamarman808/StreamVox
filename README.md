@@ -30,7 +30,7 @@ logging in with your Twitch account will give you interactive access, so that on
 
 (-Likes may or may not be a user-authenticated feature. Streamer or not, we like what we like, and big like numbers looks good for one's following)
 
-## U4 External Links [Whimsical Diagram](https://whimsical.com/streamvox-VcroUacaorbn2zkTo3fQgu) | [WireFrame](https://app.diagrams.net/#G1YcwF4pNLCTCLwEcTxqHSZxbWMUvKjWca)
+## U4 External Links [ERD](https://whimsical.com/streamvox-VcroUacaorbn2zkTo3fQgu) | [WireFrame](https://app.diagrams.net/#G1YcwF4pNLCTCLwEcTxqHSZxbWMUvKjWca) | [Trello Board](https://trello.com/b/QUUIdGVu/streamvox)
 
 ## **Technologies Used**
 1. HTML
