@@ -1,7 +1,4 @@
-import Nav from './Nav'
-import Stream from './Stream'
-import Following from './Following'
-import { Route, Routes } from 'react-router-dom'
+import { useState } from 'react'
 
 const Followers = () => {
   return (

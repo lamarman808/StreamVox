@@ -4,11 +4,12 @@ import Nav from './components/Nav'
 import Stream from './components/Stream'
 import Following from './components/Following'
 import Followers from './components/Followers'
+import Posts from './components/Posts'
+import Schedule from './components/Schedule'
 import { Route, Routes } from 'react-router-dom'
 
 function App() {
   const [user, setUser] = useState(null)
-
   const [likesCount, setCount] = useState(0)
 
   return (
