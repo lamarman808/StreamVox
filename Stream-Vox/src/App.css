@@ -1,14 +1,19 @@
 #root {
-  max-width: 1280px;
+  max-width: 2280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/1/17/Digital_rain_animation_small_letters_clear.gif);
+  background-size: cover;
 }
 
-/* main {
-  background-image: url(https://virtualbackgrounds.site/wp-content/uploads/2022/03/the-matrix-digital-rain-video.mp4);
-} */
+main {
+  color: rgba(128, 255, 0, 0.77);
+}
 
+header nav a {
+  margin: 0 1em;
+}
 /* @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
