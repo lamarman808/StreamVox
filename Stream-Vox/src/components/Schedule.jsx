@@ -1,16 +1,13 @@
 const Schedule = (props) => {
   return (
-    <div className="input">
+    <div className="schedule">
       <label>Schedule a Stream:</label>
-      <input
-        type="datetime-local"
-        name="schedule"
-        onChange={props.handleSubmit}
-        value={props.schedule}
-      />
-      <button className="schedule-button" onClick={props.addStream}>
-        Schedule Stream
-      </button>
+      {props.schedule.map((date, stream) => (
+        <div key={stream}>
+          {date}
+          <button onClick={() => props.removePost(stream)}>DELETE DATE</button>
+        </div>
+      ))}
     </div>
   )
 }
