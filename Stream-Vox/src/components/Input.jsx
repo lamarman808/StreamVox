@@ -5,10 +5,10 @@ const Input = (props) => {
       <input
         type="text"
         name="post"
-        onChange={props.handleChange}
-        value={props.input}
+        onChange={props.handleSkedge}
+        defaultValue="title - 00/00/00; 00:00"
       />
-      <button className="add-button" onClick={props.addPost}>
+      <button className="add-button" onClick={props.addStream}>
         POST
       </button>
     </div>

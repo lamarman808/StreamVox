@@ -14,12 +14,12 @@ function App() {
   const [likesCount, setCount] = useState(0)
 
   const [skedge, setSkedge] = useState([])
-  const [input, setInput] = useState('00/00/00; 00:00')
+  const [input, setInput] = useState('')
 
   const addStream = () => {
     let calendar = [...skedge, input]
     setSkedge(calendar)
-    setInput('')
+    setInput('00/00/00; 00:00')
   }
 
   const handleSkedge = (event) => {
@@ -27,9 +27,9 @@ function App() {
   }
 
   const removePost = (stream) => {
-    let timeLine = [...skedge]
-    timeLine.splice(stream, 1)
-    setSkedge(timeLine)
+    let calendar = [...skedge]
+    calendar.splice(stream, 1)
+    setSkedge(calendar)
   }
 
   return (
@@ -44,7 +44,11 @@ function App() {
           <Route path="/followers" element={<Followers />} />
         </Routes>
 
-        <Input handleSkedge={handleSkedge} addPost={addStream} input={input} />
+        <Input
+          handleSkedge={handleSkedge}
+          addStream={addStream}
+          input={input}
+        />
         <Schedule schedule={skedge} removePost={removePost} />
         {/* <Posts posts={posts} removePost={removePost} /> */}
       </main>

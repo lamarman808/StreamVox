@@ -1,10 +1,10 @@
 const Schedule = (props) => {
   return (
     <div className="schedule">
-      <label>Schedule a Stream:</label>
-      {props.schedule.map((date, stream) => (
+      <label>Streams:</label>
+      {props.schedule.map((skedge, stream) => (
         <div key={stream}>
-          {date}
+          {skedge}
           <button onClick={() => props.removePost(stream)}>DELETE DATE</button>
         </div>
       ))}
