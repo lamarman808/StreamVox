@@ -16,36 +16,28 @@ function App() {
   const [skedge, setSkedge] = useState([])
   const [post, setPost] = useState([])
   const [input, setInput] = useState('')
-  const [isDate, toggleFormat] = useState(true)
-
-  // const streamPost = (event) => {
-  //   if (event.target.value.includes('/')) {
-  //     toggleFormat(true)
-  //   } else {
-  //     toggleFormat(false)
-  //   }
-  // }
+  const [isDate, setDate] = useState(true)
 
   const addStream = (event) => {
     if (event.target.value.includes('/')) {
-      toggleFormat(true)
+      setDate(true)
     } else {
-      toggleFormat(false)
+      setDate(false)
     }
     let calendar = [...skedge, input]
     setSkedge(calendar)
-    setInput('00/00/00; 00:00')
+    setInput('title - 00/00/00; 00:00')
   }
 
   const makePost = (event) => {
     if (event.target.value.includes('/')) {
-      toggleFormat(true)
+      setDate(true)
     } else {
-      toggleFormat(false)
+      setDate(false)
     }
     let timeLine = [...post, input]
     setPost(timeLine)
-    setInput('More to say?')
+    setInput('Datum for your thoughts?')
   }
 
   const handlePost = (event) => {
@@ -56,6 +48,9 @@ function App() {
     let calendar = [...skedge]
     calendar.splice(stream, 1)
     setSkedge(calendar)
+    let timeLine = [...post]
+    timeLine.splice(stream, 1)
+    setPost(timeLine)
   }
 
   return (

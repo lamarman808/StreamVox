@@ -16,5 +16,3 @@ const Stream = () => {
 }
 
 export default Stream
-
-// IF statement for input submissions
