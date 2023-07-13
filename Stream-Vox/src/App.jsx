@@ -14,15 +14,41 @@ function App() {
   const [likesCount, setCount] = useState(0)
 
   const [skedge, setSkedge] = useState([])
+  const [post, setPost] = useState([])
   const [input, setInput] = useState('')
+  const [isDate, toggleFormat] = useState(true)
 
-  const addStream = () => {
+  // const streamPost = (event) => {
+  //   if (event.target.value.includes('/')) {
+  //     toggleFormat(true)
+  //   } else {
+  //     toggleFormat(false)
+  //   }
+  // }
+
+  const addStream = (event) => {
+    if (event.target.value.includes('/')) {
+      toggleFormat(true)
+    } else {
+      toggleFormat(false)
+    }
     let calendar = [...skedge, input]
     setSkedge(calendar)
     setInput('00/00/00; 00:00')
   }
 
-  const handleSkedge = (event) => {
+  const makePost = (event) => {
+    if (event.target.value.includes('/')) {
+      toggleFormat(true)
+    } else {
+      toggleFormat(false)
+    }
+    let timeLine = [...post, input]
+    setPost(timeLine)
+    setInput('More to say?')
+  }
+
+  const handlePost = (event) => {
     setInput(event.target.value)
   }
 
@@ -44,13 +70,22 @@ function App() {
           <Route path="/followers" element={<Followers />} />
         </Routes>
 
-        <Input
-          handleSkedge={handleSkedge}
-          addStream={addStream}
-          input={input}
-        />
+        {isDate ? (
+          <div>
+            <Input
+              isDate={isDate}
+              handlePost={handlePost}
+              addStream={addStream}
+              input={input}
+            />
+          </div>
+        ) : (
+          <div>
+            <Input handlePost={handlePost} makePost={makePost} input={input} />
+          </div>
+        )}
         <Schedule schedule={skedge} removePost={removePost} />
-        {/* <Posts posts={posts} removePost={removePost} /> */}
+        <Posts posts={post} removePost={removePost} />
       </main>
       <div>
         <h1>The Like Button!</h1>

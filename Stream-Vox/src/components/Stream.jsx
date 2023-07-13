@@ -8,7 +8,7 @@ const Stream = () => {
       </header>
       <main>
         {/* <p> */}
-        Schedule a Stream:
+        You gaming or talking here?:
         {/* </p> */}
       </main>
     </div>
