@@ -6,11 +6,7 @@ const Stream = () => {
       <header>
         <h1>STREAM FLOW</h1>
       </header>
-      <main>
-        {/* <p> */}
-        You gaming or talking here?:
-        {/* </p> */}
-      </main>
+      <main>You gaming or talking here?:</main>
     </div>
   )
 }

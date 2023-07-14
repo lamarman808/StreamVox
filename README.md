@@ -13,8 +13,9 @@ Behold, and I wish you a useful and entertaining experience!
 
 ##### **Description**
 ***
-- This app will be an interconnected and lightly communicative place for both Streamers and Streaming fans alike to be able to keep track of and interact with each other's streams!
-- Directly connected to the iternationnaly known streaming service twitch, this app will give both streamers and viewers the ability to track, like, and comment on their favorite streamer's streams and even see a streaming schedule unique to the streamers exclusive of Twitch!
+This is an connective communicative platform for both Streamers and Streaming fans alike to be able to keep track of and interact with each other's streams!
+
+Directly connected to the iternationnaly known streaming service Twitch, this app will give both streamers and viewers the ability to track, like, and comment on their favorite streamer's streams and even see a streaming schedule unique to the streamers exclusive of Twitch!
 -Twitch is a beautiful streaming platform, but both it and the Discord servers meant to help manage it can get very muddy.
 This app shall provide ease of use for knowing what people's favorite streamers have posted and give each side a platform to be more interactive outside of solely streams.
 -Users will be able to make POSTS that other users can interact with!

@@ -1,16 +1,22 @@
 const Input = (props) => {
-  // const properInput = ({isDate}) => {
-  //   return
-  // }
   if (props.isDate) {
     return (
-      <div className="input">
+      <div className="stream-input">
         <label>Schedule:</label>
+        <button className="toggle-post" onClick={props.buttonToggle}>
+          Post?
+        </button>
         <input
           type="text"
-          name="post"
-          onChange={props.handlePost}
-          defaultValue="title - 00/00/00; 00:00"
+          name="stream-title"
+          onChange={props.handleChange}
+          placeholder="Title Your Stream!"
+        />
+        <input
+          type="datetime-local"
+          name="stream"
+          onChange={props.handleChange}
+          placeholder="title - 00/00/00; 00:00"
         />
         <button className="stream-button" onClick={props.addStream}>
           POST
@@ -19,13 +25,16 @@ const Input = (props) => {
     )
   } else {
     return (
-      <div className="input">
+      <div className="post-input">
         <label>Post:</label>
+        <button className="toggle-stream" onClick={props.buttonToggle}>
+          Stream?
+        </button>
         <input
           type="text"
           name="post"
-          onChange={props.handlePost}
-          defaultValue="Datum for your thoughts?"
+          onChange={props.handleChange}
+          placeholder="Datum for your thoughts?"
         />
         <button className="post-button" onClick={props.makePost}>
           POST
