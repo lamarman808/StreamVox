@@ -1,7 +1,7 @@
 import './App.css'
 import { useState, useEffect } from 'react'
 import Nav from './components/Nav'
-import Stream from './components/Stream'
+import Stream from './pages/Stream'
 import Following from './components/Following'
 import Followers from './components/Followers'
 import Posts from './components/Posts'
