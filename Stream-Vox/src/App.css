@@ -1,7 +1,7 @@
 #root {
-  max-width: 2280px;
-  margin: 0 auto;
-  padding: 2rem;
+  max-width: 100vh;
+  margin: auto;
+  padding: 41vh;
   text-align: center;
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/1/17/Digital_rain_animation_small_letters_clear.gif);
   background-size: cover;

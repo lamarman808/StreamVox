@@ -5,7 +5,7 @@ const Posts = (props) => {
       {props.posts.map((post, stream) => (
         <div key={stream}>
           {post}
-          <button onClick={() => props.removePost(stream)}>DELETE</button>
+          <button onClick={() => props.deletePost(stream)}>DELETE</button>
         </div>
       ))}
     </div>

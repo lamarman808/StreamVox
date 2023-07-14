@@ -53,10 +53,12 @@ function App() {
   const buttonToggle = () => {
     setDate(!isDate)
   }
-  const removePost = (stream) => {
+  const deleteStream = (stream) => {
     let calendar = [...skedge]
     calendar.splice(stream, 1)
     setSkedge(calendar)
+  }
+  const deletePost = (stream) => {
     let timeLine = [...post]
     timeLine.splice(stream, 1)
     setPost(timeLine)
@@ -84,8 +86,8 @@ function App() {
             buttonToggle={buttonToggle}
           />
         </div>
-        <Schedule schedule={skedge} removePost={removePost} />
-        <Posts posts={post} removePost={removePost} />
+        <Schedule schedule={skedge} deleteStream={deleteStream} />
+        <Posts posts={post} deletePost={deletePost} />
       </main>
       <div>
         <h1>The Like Button!</h1>

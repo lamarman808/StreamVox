@@ -5,7 +5,9 @@ const Schedule = (props) => {
       {props.schedule.map((skedge, stream) => (
         <div key={stream}>
           {skedge}
-          <button onClick={() => props.removePost(stream)}>DELETE DATE</button>
+          <button onClick={() => props.deleteStream(stream)}>
+            DELETE DATE
+          </button>
         </div>
       ))}
     </div>
