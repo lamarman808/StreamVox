@@ -2,15 +2,15 @@ import './App.css'
 import { useState, useEffect } from 'react'
 import Nav from './components/Nav'
 import Stream from './pages/Stream'
-import Following from './components/Following'
-import Followers from './components/Followers'
-import Posts from './components/Posts'
-import Schedule from './components/Schedule'
+import Following from './pages/Following'
+import Followers from './pages/Followers'
+import Posts from './pages/Posts'
+import Schedule from './pages/Schedule'
 import { Route, Routes } from 'react-router-dom'
 import Input from './components/Input'
 
 function App() {
-  // const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null)
   const [likesCount, setCount] = useState(0)
 
   const [skedge, setSkedge] = useState([])
