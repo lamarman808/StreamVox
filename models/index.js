@@ -5,7 +5,7 @@ const scheduleSchema = require('./Schedule')
 
 const User = mongoose.model('User', userSchema)
 const Post = mongoose.model('Post', postSchema)
-const Schedule = mongoose.model('Post', scheduleSchema)
+const Schedule = mongoose.model('Schedule', scheduleSchema)
 
 module.exports = {
   User,

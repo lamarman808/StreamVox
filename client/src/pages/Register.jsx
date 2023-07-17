@@ -29,20 +29,20 @@ const Register = () => {
       password: '',
       confirmPassword: ''
     })
-    navigate('/signin')
+    navigate('/login')
   }
 
   return (
-    <div className="signin col">
+    <div className="login col">
       <div className="card-overlay centered">
         <form className="col" onSubmit={handleSubmit}>
           <div className="input-wrapper">
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">User Name</label>
             <input
               onChange={formChange}
               name="name"
               type="text"
-              placeholder="John Smith"
+              placeholder="Gamer Tag"
               value={formValues.name}
               required
             />
@@ -53,7 +53,7 @@ const Register = () => {
               onChange={formChange}
               name="email"
               type="email"
-              placeholder="example@example.com"
+              placeholder="streamer@example.com"
               value={formValues.email}
               required
             />

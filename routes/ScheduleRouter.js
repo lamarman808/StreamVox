@@ -1,25 +1,25 @@
 const router = require('express').Router()
-const controller = require('../controllers/PostController')
+const controller = require('../controllers/ScheduleController')
 const middleware = require('../middleware')
 
-router.get('/', controller.GetPosts)
+router.get('/', controller.GetStreams)
 router.post(
   '/',
   middleware.stripToken,
   middleware.verifyToken,
-  controller.CreatePost
+  controller.CreateStream
 )
 router.put(
   '/:post_id',
   middleware.stripToken,
   middleware.verifyToken,
-  controller.UpdatePost
+  controller.UpdateStream
 )
 router.delete(
   '/:post_id',
   middleware.stripToken,
   middleware.verifyToken,
-  controller.DeletePost
+  controller.DeleteStream
 )
 
 module.exports = router

@@ -33,7 +33,10 @@ function App() {
     setInput('')
   }
 
-  console.log(isDate)
+  const handleLogOut = () => {
+    setUser(null)
+    localStorage.clear()
+  }
 
   const makePost = (event) => {
     if (event.target.value.includes('/')) {
@@ -68,12 +71,13 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <Nav />
-      </header>
+      <Nav user={user} handleLogOut={handleLogOut} />
+      <header>Welcome to Stream Vox! Peep game!</header>
       <main>
         <Routes>
           <Route path="*" element={<Stream />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/following" element={<Following />} />
           <Route path="/followers" element={<Followers />} />
         </Routes>
