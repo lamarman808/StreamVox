@@ -9,4 +9,4 @@ const scheduleSchema = new Schema(
   { timestamps: true }
 )
 
-module.exports = postSchema
+module.exports = scheduleSchema
