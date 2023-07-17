@@ -1,6 +1,8 @@
 import './App.css'
 import { useState, useEffect } from 'react'
 import Nav from './components/Nav'
+import LogIn from './pages/LogIn'
+import Register from './pages/Register'
 import Stream from './pages/Stream'
 import Following from './pages/Following'
 import Followers from './pages/Followers'
