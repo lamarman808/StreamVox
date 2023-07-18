@@ -2,11 +2,11 @@ const router = require('express').Router()
 const controller = require('../controllers/PostController')
 const middleware = require('../middleware')
 
-router.get('/', controller.GetPosts)
+router.get('/posts', controller.GetPosts)
 router.post(
-  '/',
-  middleware.stripToken,
-  middleware.verifyToken,
+  '/new',
+  // middleware.stripToken,
+  // middleware.verifyToken,
   controller.CreatePost
 )
 router.put(

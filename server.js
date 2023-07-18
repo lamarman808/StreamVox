@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use('/auth', AuthRouter)
 app.use('/posts', PostRouter)
+app.use('/games', PostRouter)
 app.use('/schedule', ScheduleRouter)
 
 app.use('/', (req, res) => {
