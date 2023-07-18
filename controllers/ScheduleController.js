@@ -1,4 +1,4 @@
-const { Post } = require('../models')
+const { Schedule } = require('../models')
 
 const GetStreams = async (req, res) => {
   try {
