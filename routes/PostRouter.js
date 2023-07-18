@@ -2,7 +2,7 @@ const router = require('express').Router()
 const controller = require('../controllers/PostController')
 const middleware = require('../middleware')
 
-router.get('/posts', controller.GetPosts)
+router.get('/all', controller.GetPosts)
 router.post(
   '/new',
   // middleware.stripToken,
@@ -11,8 +11,8 @@ router.post(
 )
 router.put(
   '/:post_id',
-  middleware.stripToken,
-  middleware.verifyToken,
+  // middleware.stripToken,
+  // middleware.verifyToken,
   controller.UpdatePost
 )
 router.delete(
