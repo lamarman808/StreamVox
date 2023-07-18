@@ -1,17 +1,8 @@
 import Client from './api'
 
-export const GetStream = async () => {
+export const GetStreams = async () => {
   try {
-    const res = await Client.get('/')
-    return res.data
-  } catch (error) {
-    throw error
-  }
-}
-
-export const GrabPosts = async () => {
-  try {
-    const res = await Client.get('/posts')
+    const res = await Client.get('/schedule')
     return res.data
   } catch (error) {
     throw error
