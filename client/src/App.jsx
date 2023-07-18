@@ -1,4 +1,5 @@
 import './App.css'
+import Home from './pages/Home'
 import { useState, useEffect } from 'react'
 import Nav from './components/Nav'
 import LogIn from './pages/LogIn'
@@ -76,7 +77,8 @@ function App() {
       <header>Welcome to Stream Vox! Peep game!</header>
       <main>
         <Routes>
-          <Route path="*" element={<Stream />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/stream" element={<Stream />} />
           <Route path="/login" element={<LogIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/following" element={<Following />} />
