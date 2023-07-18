@@ -2,6 +2,7 @@ import './App.css'
 import { useState, useEffect } from 'react'
 import Nav from './components/Nav'
 import LogIn from './pages/LogIn'
+// import { LogInUser } from './services/Auth'
 import Register from './pages/Register'
 import Stream from './pages/Stream'
 import Following from './pages/Following'
@@ -76,7 +77,7 @@ function App() {
       <main>
         <Routes>
           <Route path="*" element={<Stream />} />
-          <Route path="/login" element={<LogIn />} />
+          <Route path="/login" element={<LogIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/following" element={<Following />} />
           <Route path="/followers" element={<Followers />} />

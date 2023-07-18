@@ -20,7 +20,7 @@ const LogIn = ({ setUser }) => {
   }
 
   return (
-    <div className="login col">
+    <div className="login-col">
       <div className="card-overlay centered">
         <form className="col" onSubmit={handleSubmit}>
           <div className="input-wrapper">
