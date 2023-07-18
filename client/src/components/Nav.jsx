@@ -6,7 +6,10 @@ const Nav = () => {
       <div>
         <ul>
           <li>
-            <NavLink to="/">Stream</NavLink>
+            <NavLink to="/">Lvl 1</NavLink>
+          </li>
+          <li>
+            <NavLink to="/register">Sign Up!</NavLink>
           </li>
           <li>
             <NavLink to="/following">Following</NavLink>

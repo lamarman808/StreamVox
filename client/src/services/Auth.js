@@ -3,7 +3,7 @@ import Client from './api'
 export const LogInUser = async (data) => {
   try {
     const res = await Client.post('/auth/login', data)
-    localStorage.selectitem('token', res.data.token)
+    localStorage.setItem('token', res.data.token)
     return res.data.user
   } catch (error) {
     throw error
