@@ -3,7 +3,6 @@ import Home from './pages/Home'
 import { useState, useEffect } from 'react'
 import Nav from './components/Nav'
 import LogIn from './pages/LogIn'
-// import { LogInUser } from './services/Auth'
 import Register from './pages/Register'
 import Stream from './pages/Stream'
 import Following from './pages/Following'
@@ -12,6 +11,7 @@ import Posts from './pages/Posts'
 import Schedule from './pages/Schedule'
 import { Route, Routes } from 'react-router-dom'
 import Input from './components/Input'
+import { CheckSession } from './services/Auth'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -60,6 +60,7 @@ function App() {
   const buttonToggle = () => {
     setDate(!isDate)
   }
+
   const deleteStream = (stream) => {
     let calendar = [...skedge]
     calendar.splice(stream, 1)
@@ -71,6 +72,18 @@ function App() {
     setPost(timeLine)
   }
 
+  const checkToken = async () => {
+    const user = await CheckSession()
+    setUser(user)
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
+
   return (
     <div className="App">
       <Nav user={user} handleLogOut={handleLogOut} />
@@ -78,9 +91,9 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/stream" element={<Stream />} />
           <Route path="/login" element={<LogIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/stream" element={<Stream user={user} />} />
           <Route path="/following" element={<Following />} />
           <Route path="/followers" element={<Followers />} />
         </Routes>

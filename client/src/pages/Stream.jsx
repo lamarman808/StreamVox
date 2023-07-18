@@ -18,11 +18,10 @@ const Stream = ({ user }) => {
   return user ? (
     <div className="grid col-4">
       <header>
-        <h1>STREAM FLOW</h1>
+        <h1>We gaming or talking here?</h1>
       </header>
       {posts.map((post) => (
-        <div className="card" key={post.id}>
-          <h3>You gaming or talking here?:</h3>
+        <div className="post-card" key={post.id}>
           <div>
             <img src={post.image} alt="post" />
           </div>
@@ -31,6 +30,11 @@ const Stream = ({ user }) => {
           ) : (
             <p>{post.body}</p>
           )}
+        </div>
+      ))}
+      {streams.map((stream) => (
+        <div className="calendar-card" key={schedule.id}>
+          {schedule.title}: {schedule.date}; {schedule.time}; {schedule.range}
         </div>
       ))}
     </div>

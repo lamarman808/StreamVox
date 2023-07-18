@@ -2,11 +2,11 @@ const router = require('express').Router()
 const controller = require('../controllers/ScheduleController')
 const middleware = require('../middleware')
 
-router.get('/schedule', controller.GetStreams)
+router.get('/streams', controller.GetStreams)
 router.post(
-  '/schedule',
-  middleware.stripToken,
-  middleware.verifyToken,
+  '/new',
+  // middleware.stripToken,
+  // middleware.verifyToken,
   controller.CreateStream
 )
 router.put(

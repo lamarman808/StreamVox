@@ -2,7 +2,8 @@ const { Schedule } = require('../models')
 
 const GetStreams = async (req, res) => {
   try {
-    const streams = await Stream.find({})
+    console.log('hello')
+    const streams = await Schedule.find({})
     res.send(streams)
   } catch (error) {
     throw error
@@ -11,7 +12,7 @@ const GetStreams = async (req, res) => {
 
 const CreateStream = async (req, res) => {
   try {
-    const stream = await Stream.create({ ...req.body })
+    const stream = await Schedule.create({ ...req.body })
     res.send(stream)
   } catch (error) {
     throw error
@@ -20,7 +21,7 @@ const CreateStream = async (req, res) => {
 
 const UpdateStream = async (req, res) => {
   try {
-    const stream = await Stream.findByIdAndUpdate(
+    const stream = await Schedule.findByIdAndUpdate(
       req.params.stream_id,
       req.body,
       { new: true }
@@ -33,7 +34,7 @@ const UpdateStream = async (req, res) => {
 
 const DeleteStream = async (req, res) => {
   try {
-    await Stream.deleteOne({ _id: req.params.stream_id })
+    await Schedule.deleteOne({ _id: req.params.stream_id })
     res.send({
       msg: 'Schedule Cleared!',
       payload: req.params.stream_id,
