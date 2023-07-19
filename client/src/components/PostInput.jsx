@@ -1,5 +1,8 @@
 import { useState } from 'react'
-const Input = (props) => {
+
+const PostInput = (props) => {
+  const [input, setInput] = useState('')
+
   if (props.isDate) {
     return (
       <div className="stream-input">
@@ -45,4 +48,4 @@ const Input = (props) => {
   }
 }
 
-export default Input
+export default PostInput

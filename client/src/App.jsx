@@ -10,8 +10,10 @@ import Followers from './pages/Followers'
 import Posts from './pages/Posts'
 import Schedule from './pages/Schedule'
 import { Route, Routes } from 'react-router-dom'
-import Input from './components/Input'
+import Input from './components/PostInput'
 import { CheckSession } from './services/Auth'
+import { GetPosts } from './services/PostServices'
+import axios from 'axios'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -20,16 +22,16 @@ function App() {
   const [skedge, setSkedge] = useState([])
   const [post, setPost] = useState([])
   const [input, setInput] = useState('')
-  const [isDate, setDate] = useState(true)
+  // const [isDate, setDate] = useState(true)
 
   const addStream = (event) => {
-    console.log(input)
-    if (event.target.value.includes('/')) {
-      setDate(true)
-    } else {
-      setDate(false)
-      setInput('')
-    }
+    // console.log(input)
+    // if (event.target.value.includes('/')) {
+    // setDate(true)
+    // } else {
+    //   setDate(false)
+    //   setInput('')
+    // }
     let calendar = [...skedge, input]
     setSkedge(calendar)
     setInput('')
@@ -41,12 +43,12 @@ function App() {
   }
 
   const makePost = (event) => {
-    if (event.target.value.includes('/')) {
-      setDate(true)
-      setInput('')
-    } else {
-      setDate(false)
-    }
+    // if (event.target.value.includes('/')) {
+    //   setDate(true)
+    //   setInput('')
+    // } else {
+    // setDate(false)
+    // }
     let timeLine = [...post, input]
     setPost(timeLine)
     setInput('')
@@ -57,9 +59,9 @@ function App() {
     setInput(event.target.value)
   }
 
-  const buttonToggle = () => {
-    setDate(!isDate)
-  }
+  // const buttonToggle = () => {
+  //   setDate(!isDate)
+  // }
 
   const deleteStream = (stream) => {
     let calendar = [...skedge]
@@ -101,12 +103,13 @@ function App() {
 
         <div>
           <Input
-            isDate={isDate}
+            // isDate={isDate}
             handleChange={handleChange}
             addStream={addStream}
             makePost={makePost}
             input={input}
             buttonToggle={buttonToggle}
+            setInput={setInput}
           />
         </div>
         <Schedule schedule={skedge} deleteStream={deleteStream} />

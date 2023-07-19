@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { GetPosts } from '../services/PostServices'
+import { GetStreams } from '../services/StreamServices'
 import { useState, useEffect } from 'react'
 
 const Stream = ({ user }) => {
@@ -32,9 +33,9 @@ const Stream = ({ user }) => {
           )}
         </div>
       ))}
-      {streams.map((stream) => (
-        <div className="calendar-card" key={schedule.id}>
-          {schedule.title}: {schedule.date}; {schedule.time}; {schedule.range}
+      {schedule.map((stream) => (
+        <div className="calendar-card" key={stream.id}>
+          {stream.title}: {stream.date}; {stream.time}; {stream.range}
         </div>
       ))}
     </div>
