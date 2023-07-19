@@ -1,4 +1,6 @@
 body {
+  font-size:xx-large ;
+  color: rgba(128, 255, 0, 0.77);
   max-width: 100vh;
   margin: auto;
   padding: 41vh;
@@ -9,11 +11,36 @@ body {
 }
 
 main {
+  font-size:x-large;
   font-family: 'VT323', monospace;
   color: rgba(128, 255, 0, 0.77);
+}
+
+nav h3 {
+  color:gold;
 }
 
 header nav a {
   font-family: 'VT323', monospace;
   margin: 0 1em;
+}
+
+header {
+  max-height: 4em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-bg);
+}
+
+nav {
+  margin-right: 1em;
+  display: flex;
+}
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  border-radius: 50%;
+  height: 10vh;
 }

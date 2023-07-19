@@ -3,14 +3,15 @@ import { GetStreams } from '../services/StreamServices'
 import { useState, useEffect } from 'react'
 
 const Schedule = ({ user }) => {
+  let navigate = useNavigate()
   const [streams, setStreams] = useState([])
 
   useEffect(() => {
-    const handlePosts = async () => {
+    const handleStreams = async () => {
       const streamData = await GetStreams()
       setStreams(streamData)
     }
-    handlePosts()
+    handleStreams()
   }, [])
 
   return user ? (
@@ -26,7 +27,7 @@ const Schedule = ({ user }) => {
     </div>
   ) : (
     <div className="protected">
-      <h3>Dg gum! Y'all gon' hafta sign on in to go further!</h3>
+      <h3>Dag gum! Y'all gon' hafta sign on in to go further!</h3>
       <button onClick={() => navigate('/login')}>Sign In</button>
     </div>
   )

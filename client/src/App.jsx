@@ -83,12 +83,10 @@ function App() {
 
         <div>
           <Input
-            // isDate={isDate}
             handleChange={handleChange}
             addStream={addStream}
             makePost={makePost}
             input={input}
-            // buttonToggle={buttonToggle}
             setInput={setInput}
           />
         </div>
