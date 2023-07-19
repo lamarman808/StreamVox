@@ -5,21 +5,15 @@ body {
   text-align: center;
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/1/17/Digital_rain_animation_small_letters_clear.gif);
   background-size: cover;
+  font-family: 'VT323', monospace;
 }
 
 main {
+  font-family: 'VT323', monospace;
   color: rgba(128, 255, 0, 0.77);
 }
 
 header nav a {
+  font-family: 'VT323', monospace;
   margin: 0 1em;
 }
-/* @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-} */
-
-/* .card {
-  padding: 2em;
-} */
