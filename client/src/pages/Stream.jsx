@@ -7,11 +7,14 @@ const Stream = ({ user }) => {
   let navigate = useNavigate()
 
   const [posts, setPosts] = useState([])
+  const [streams, setStreams] = useState([])
 
   useEffect(() => {
     const handlePosts = async () => {
-      const data = await GetPosts()
-      setPosts(data)
+      const postData = await GetPosts()
+      setPosts(postData)
+      const streamData = await GetStreams()
+      setStreams(streamData)
     }
     handlePosts()
   }, [])
@@ -22,10 +25,7 @@ const Stream = ({ user }) => {
         <h1>We gaming or talking here?</h1>
       </header>
       {posts.map((post) => (
-        <div className="post-card" key={post.id}>
-          <div>
-            <img src={post.image} alt="post" />
-          </div>
+        <div key={post.id} className="post-card">
           {post.body.length >= 100 ? (
             <p>{post.body.substring(0, 100)}...</p>
           ) : (
@@ -33,8 +33,8 @@ const Stream = ({ user }) => {
           )}
         </div>
       ))}
-      {schedule.map((stream) => (
-        <div className="calendar-card" key={stream.id}>
+      {streams.map((stream) => (
+        <div key={stream.id} className="calendar-card">
           {stream.title}: {stream.date}; {stream.time}; {stream.range}
         </div>
       ))}
