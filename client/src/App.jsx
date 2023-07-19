@@ -17,21 +17,11 @@ import axios from 'axios'
 
 function App() {
   const [user, setUser] = useState(null)
-  const [likesCount, setCount] = useState(0)
-
   const [skedge, setSkedge] = useState([])
   const [post, setPost] = useState([])
   const [input, setInput] = useState('')
-  // const [isDate, setDate] = useState(true)
 
   const addStream = (event) => {
-    // console.log(input)
-    // if (event.target.value.includes('/')) {
-    // setDate(true)
-    // } else {
-    //   setDate(false)
-    //   setInput('')
-    // }
     let calendar = [...skedge, input]
     setSkedge(calendar)
     setInput('')
@@ -43,12 +33,6 @@ function App() {
   }
 
   const makePost = (event) => {
-    // if (event.target.value.includes('/')) {
-    //   setDate(true)
-    //   setInput('')
-    // } else {
-    // setDate(false)
-    // }
     let timeLine = [...post, input]
     setPost(timeLine)
     setInput('')
@@ -58,10 +42,6 @@ function App() {
     console.log(event.target.value)
     setInput(event.target.value)
   }
-
-  // const buttonToggle = () => {
-  //   setDate(!isDate)
-  // }
 
   const deleteStream = (stream) => {
     let calendar = [...skedge]
@@ -115,14 +95,6 @@ function App() {
         <Schedule schedule={skedge} deleteStream={deleteStream} />
         <Posts posts={post} deletePost={deletePost} />
       </main>
-      <div>
-        <h1>The Like Button!</h1>
-        <div className="likes-card">
-          <button onClick={() => setCount((likesCount) => likesCount + 1)}>
-            Likes {likesCount}
-          </button>
-        </div>
-      </div>
     </div>
   )
 }

@@ -8,6 +8,8 @@ const Stream = ({ user }) => {
 
   const [posts, setPosts] = useState([])
   const [streams, setStreams] = useState([])
+  const [postLikesCount, setPostLikes] = useState(0)
+  const [streamLikesCount, setStreamLikes] = useState(0)
 
   useEffect(() => {
     const handlePosts = async () => {
@@ -31,6 +33,15 @@ const Stream = ({ user }) => {
           ) : (
             <p>{post.body}</p>
           )}
+          <div>
+            <button
+              onClick={() =>
+                setPostLikes((postLikesCount) => postLikesCount + 1)
+              }
+            >
+              Like {postLikesCount}
+            </button>
+          </div>
         </div>
       ))}
       {streams.map((stream) => (
@@ -38,6 +49,15 @@ const Stream = ({ user }) => {
           {stream.title}: {stream.date}; {stream.time}; {stream.range}
         </div>
       ))}
+      <div>
+        <button
+          onClick={() =>
+            setStreamLikes((streamLikesCount) => streamLikesCount + 1)
+          }
+        >
+          Like {streamLikesCount}
+        </button>
+      </div>
     </div>
   ) : (
     <div className="protected">
