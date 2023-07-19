@@ -10,15 +10,15 @@ router.post(
   controller.CreateGame
 )
 router.put(
-  '/:post_id',
-  middleware.stripToken,
-  middleware.verifyToken,
+  '/:game_id',
+  // middleware.stripToken,
+  // middleware.verifyToken,
   controller.UpdateGame
 )
 router.delete(
-  '/:post_id',
-  middleware.stripToken,
-  middleware.verifyToken,
+  '/:game_id',
+  // middleware.stripToken,
+  // middleware.verifyToken,
   controller.DeleteGame
 )
 

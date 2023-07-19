@@ -12,7 +12,7 @@ const GetGames = async (req, res) => {
 const CreateGame = async (req, res) => {
   try {
     const game = await Game.create({ ...req.body })
-    res.send(games)
+    res.send(game)
   } catch (error) {
     throw error
   }

@@ -2,7 +2,6 @@ const { Schedule } = require('../models')
 
 const GetStreams = async (req, res) => {
   try {
-    console.log('hello')
     const streams = await Schedule.find({})
     res.send(streams)
   } catch (error) {

@@ -96,6 +96,7 @@ function App() {
           <Route path="/stream" element={<Stream user={user} />} />
           <Route path="/following" element={<Following />} />
           <Route path="/followers" element={<Followers />} />
+          <Route path="/schedule" element={<Schedule schedule={skedge} />} />
         </Routes>
 
         <div>
