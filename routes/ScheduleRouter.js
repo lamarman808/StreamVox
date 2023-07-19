@@ -5,20 +5,20 @@ const middleware = require('../middleware')
 router.get('/', controller.GetStreams)
 router.post(
   '/new',
-  // middleware.stripToken,
-  // middleware.verifyToken,
+  middleware.stripToken,
+  middleware.verifyToken,
   controller.CreateStream
 )
 router.put(
   '/:stream_id',
-  // middleware.stripToken,
-  // middleware.verifyToken,
+  middleware.stripToken,
+  middleware.verifyToken,
   controller.UpdateStream
 )
 router.delete(
   '/:stream_id',
-  // middleware.stripToken,
-  // middleware.verifyToken,
+  middleware.stripToken,
+  middleware.verifyToken,
   controller.DeleteStream
 )
 

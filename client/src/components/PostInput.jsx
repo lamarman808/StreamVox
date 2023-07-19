@@ -1,51 +1,41 @@
 import { useState } from 'react'
+import axios from 'axios'
+import { GetPosts, CreatePost } from '../services/PostServices'
 
 const PostInput = (props) => {
-  const [input, setInput] = useState('')
-
-  if (props.isDate) {
-    return (
-      <div className="stream-input">
-        <label>Schedule:</label>
-        <button className="toggle-post" onClick={props.buttonToggle}>
-          Post?
-        </button>
-        <input
-          type="text"
-          name="stream-title"
-          onChange={props.handleChange}
-          placeholder="Title Your Stream!"
-        />
-        <input
-          type="datetime-local"
-          name="stream"
-          onChange={props.handleChange}
-          placeholder="title - 00/00/00; 00:00"
-        />
-        <button className="stream-button" onClick={props.addStream}>
-          POST
-        </button>
-      </div>
-    )
-  } else {
-    return (
-      <div className="post-input">
-        <label>Post:</label>
-        <button className="toggle-stream" onClick={props.buttonToggle}>
-          Stream?
-        </button>
-        <input
-          type="text"
-          name="post"
-          onChange={props.handleChange}
-          placeholder="Datum for your thoughts?"
-        />
-        <button className="post-button" onClick={props.makePost}>
-          POST
-        </button>
-      </div>
-    )
+  const blankPostState = {
+    body: ''
   }
+  const [postState, setPostState] = useState(blankPostState)
+
+  const handlePostSubmit = async (event) => {
+    event.preventDefault()
+    if (!postState.body) {
+      await axios.post('http://localhost:3001/posts', postState)
+      console.log(postState)
+      setPostState(blankPostState)
+      GetPosts()
+    }
+  }
+
+  const handlePostChange = (event) => {
+    setPostState({ ...postState, [event.target.id]: event.target.value })
+  }
+
+  return (
+    <form onSubmit={handlePostSubmit}>
+      <label htmlFor="body">Flex your Vox:</label>
+      <input
+        type="text"
+        name="post"
+        onChange={props.handlePostChange}
+        placeholder="Datum for your thoughts?"
+      />
+      <button className="post-button" onClick={props.CreatePost}>
+        POST
+      </button>
+    </form>
+  )
 }
 
 export default PostInput

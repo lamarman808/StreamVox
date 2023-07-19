@@ -108,7 +108,7 @@ function App() {
             addStream={addStream}
             makePost={makePost}
             input={input}
-            buttonToggle={buttonToggle}
+            // buttonToggle={buttonToggle}
             setInput={setInput}
           />
         </div>
