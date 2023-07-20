@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
-import { GetPosts } from '../services/PostServices'
+import { GetPosts, CreatePost } from '../services/PostServices'
 
 const PostInput = (props) => {
   const blankPostState = {
@@ -11,7 +11,7 @@ const PostInput = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     if (!postState.body) {
-      await axios.post('http://localhost:3001/posts', postState)
+      await axios.post('http://localhost:3001/posts/new', postState)
       console.log(postState)
       setPostState(blankPostState)
       GetPosts()
@@ -25,13 +25,13 @@ const PostInput = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="body">Flex your Vox:</label>
-      <input
+      <textarea
         type="text"
         name="post"
-        onChange={props.handleChange}
+        onChange={handleChange}
         placeholder="Datum for your thoughts?"
-      />
-      <button className="post-button" onClick={props.CreatePost}>
+      ></textarea>
+      <button type="submit" onClick={CreatePost}>
         POST
       </button>
     </form>

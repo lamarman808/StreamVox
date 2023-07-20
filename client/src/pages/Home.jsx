@@ -10,10 +10,8 @@ const Home = () => {
         alt="Aku Aku!"
       />
 
-      <section className="welcome-signin">
-        <button onClick={() => navigate('/signin')}>
-          Click Here! I promise it's not a trick . . .
-        </button>
+      <section className="welcome-login">
+        <button onClick={() => navigate('/login')}>Login Here!</button>
       </section>
     </div>
   )

@@ -79,8 +79,10 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/stream" element={<Stream user={user} />} />
           <Route path="/posts" element={<Posts user={user} />} />
+          <Route path="/posts/new" element={<Posts user={user} />} />
           <Route path="/game" element={<Games user={user} />} />
           <Route path="/schedule" element={<Schedule user={user} />} />
+          <Route path="/schedule/new" element={<Schedule user={user} />} />
         </Routes>
 
         <div>

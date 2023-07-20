@@ -28,6 +28,7 @@ const Stream = ({ user }) => {
         <h1>We gaming or talking here?</h1>
         <button onClick={() => navigate('/posts/new')}>Add Post</button>
       </header>
+      <h2>Post Waterfall</h2>
       {posts.map((post) => (
         <div key={post.id} className="post-card">
           {post.body.length >= 100 ? (
@@ -46,6 +47,7 @@ const Stream = ({ user }) => {
           </div>
         </div>
       ))}
+      <h2>Scheduled Streams</h2>
       {streams.map((stream) => (
         <div key={stream.id} className="calendar-card">
           {stream.title}: {stream.date}; {stream.time}; {stream.range}
