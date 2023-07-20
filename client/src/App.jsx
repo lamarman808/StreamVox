@@ -10,7 +10,7 @@ import Followers from './pages/Followers'
 import Posts from './pages/Posts'
 import Schedule from './pages/Schedule'
 import { Route, Routes } from 'react-router-dom'
-import Input from './components/PostInput'
+import PostInput from './components/PostInput'
 import { CheckSession } from './services/Auth'
 import { GetPosts } from './services/PostServices'
 import axios from 'axios'
@@ -76,13 +76,11 @@ function App() {
           <Route path="/login" element={<LogIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/stream" element={<Stream user={user} />} />
-          <Route path="/following" element={<Following />} />
-          <Route path="/followers" element={<Followers />} />
-          <Route path="/schedule" element={<Schedule schedule={skedge} />} />
+          <Route path="/schedule" element={<Schedule user={user} />} />
         </Routes>
 
         <div>
-          <Input
+          <PostInput
             handleChange={handleChange}
             addStream={addStream}
             makePost={makePost}
@@ -90,7 +88,6 @@ function App() {
             setInput={setInput}
           />
         </div>
-        <Schedule schedule={skedge} deleteStream={deleteStream} />
         <Posts posts={post} deletePost={deletePost} />
       </main>
     </div>

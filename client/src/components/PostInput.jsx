@@ -11,7 +11,7 @@ const PostInput = (props) => {
   const handlePostSubmit = async (event) => {
     event.preventDefault()
     if (!postState.body) {
-      await axios.post('http://localhost:3001/posts', postState)
+      await axios.post('http://localhost:3001/posts/new', postState)
       console.log(postState)
       setPostState(blankPostState)
       GetPosts()

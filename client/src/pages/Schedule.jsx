@@ -20,7 +20,7 @@ const Schedule = ({ user }) => {
         <h1>Stream Schedule</h1>
       </header>
       {streams.map((stream) => (
-        <div key={stream.id} className="calendar">
+        <div key={stream._id} className="calendar">
           {stream.title}: {stream.date}; {stream.time}; {stream.range}
         </div>
       ))}
