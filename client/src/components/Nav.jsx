@@ -9,6 +9,7 @@ const Nav = ({ user, handleLogOut }) => {
         <h3>Hey! Listen!</h3>
         <NavLink to="/stream">Stream</NavLink>
         <NavLink to="/posts">Posts</NavLink>
+        <NavLink to="/game">Games</NavLink>
         <NavLink to="/schedule">Schedule</NavLink>
         <NavLink onClick={handleLogOut}>Log Out</NavLink>
       </nav>

@@ -14,6 +14,8 @@ import PostInput from './components/PostInput'
 import { CheckSession } from './services/Auth'
 import { GetPosts } from './services/PostServices'
 import axios from 'axios'
+import { GetGames } from './services/GameServices'
+import Games from './pages/Games'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -77,6 +79,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/stream" element={<Stream user={user} />} />
           <Route path="/posts" element={<Posts user={user} />} />
+          <Route path="/game" element={<Games user={user} />} />
           <Route path="/schedule" element={<Schedule user={user} />} />
         </Routes>
 
