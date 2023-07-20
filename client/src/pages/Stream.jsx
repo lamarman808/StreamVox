@@ -30,7 +30,7 @@ const Stream = ({ user }) => {
       </header>
       <h2>Post Waterfall</h2>
       {posts.map((post) => (
-        <div key={post.id} className="post-card">
+        <div key={post._id} className="post-card">
           {post.body.length >= 100 ? (
             <p>{post.body.substring(0, 100)}...</p>
           ) : (
@@ -49,7 +49,7 @@ const Stream = ({ user }) => {
       ))}
       <h2>Scheduled Streams</h2>
       {streams.map((stream) => (
-        <div key={stream.id} className="calendar-card">
+        <div key={stream._id} className="calendar-card">
           {stream.title}: {stream.date}; {stream.time}; {stream.range}
         </div>
       ))}

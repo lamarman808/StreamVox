@@ -23,7 +23,7 @@ const Games = ({ user }) => {
         <button onClick={() => navigate('/game/new')}>New Game+</button>
       </header>
       {games.map((game) => (
-        <div key={game.id} className="memory-card">
+        <div key={game._id} className="memory-card">
           {game.title} : {game.console}
           <br />
           {game.played}

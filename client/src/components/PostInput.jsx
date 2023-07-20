@@ -24,9 +24,7 @@ const PostInput = () => {
   const handleChange = (event) => {
     setPostState({ ...postState, [event.target.id]: event.target.value })
   }
-  const handleClick = () => {
-    console.log('Post Button Clicked!')
-  }
+
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="body">Flex your Vox:</label>
@@ -38,9 +36,7 @@ const PostInput = () => {
         placeholder="Datum for your thoughts?"
         value={postState.body}
       />
-      <button type="submit" onClick={handleClick}>
-        POST
-      </button>
+      <button type="submit">POST</button>
     </form>
   )
 }

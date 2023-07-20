@@ -1,22 +1,20 @@
 import './App.css'
-import Home from './pages/Home'
 import { useState, useEffect } from 'react'
+import Home from './pages/Home'
 import Nav from './components/Nav'
 import LogIn from './pages/LogIn'
 import Register from './pages/Register'
 import Stream from './pages/Stream'
-import Following from './pages/Following'
-import Followers from './pages/Followers'
 import Posts from './pages/Posts'
-// PostInput may need to be IN pages?
+import Games from './pages/Games'
+// import Comments from './pages/Comments'
 import PostInput from './components/PostInput'
+import StreamInput from './components/StreamInput'
+import GameInput from './components/GameInput'
+import CommentInput from './components/CommentInput'
 import Schedule from './pages/Schedule'
 import { Route, Routes } from 'react-router-dom'
 import { CheckSession } from './services/Auth'
-import { GetPosts } from './services/PostServices'
-import axios from 'axios'
-import { GetGames } from './services/GameServices'
-import Games from './pages/Games'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -84,8 +82,10 @@ function App() {
           <Route path="/posts" element={<Posts user={user} />} />
           <Route path="/posts/new" element={<PostInput user={user} />} />
           <Route path="/game" element={<Games user={user} />} />
+          <Route path="/game/new" element={<GameInput user={user} />} />
+          <Route path="/comment/new" element={<CommentInput user={user} />} />
           <Route path="/schedule" element={<Schedule user={user} />} />
-          <Route path="/schedule/new" element={<Schedule user={user} />} />
+          <Route path="/schedule/new" element={<StreamInput user={user} />} />
         </Routes>
 
         <div>

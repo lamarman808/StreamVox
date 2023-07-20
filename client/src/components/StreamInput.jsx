@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import { GetStreams } from '../services/StreamServices'
-import axios from 'axios'
+import Client, { BASE_URL } from '../services/api'
 import { useNavigate } from 'react-router-dom'
 
-const StreamInput = (props) => {
+const StreamInput = () => {
   const blankStreamState = {
     title: '',
     date: '',
@@ -16,12 +15,15 @@ const StreamInput = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    if (!streamState.body) {
-      await axios.post('http://localhost:3001/schedule', streamState)
-      console.log(streamState)
-      setStreamState(blankStreamState)
-      GetStreams()
-      navigate('/shcedule')
+    try {
+      const newStream = await Client.post(
+        `${BASE_URL}/schedule/new`,
+        streamState
+      )
+      console.log(newStream)
+      navigate('/schedule')
+    } catch (err) {
+      console.error(err)
     }
   }
 
@@ -34,35 +36,44 @@ const StreamInput = (props) => {
   }
 
   return (
-    <div className="stream-input">
-      <label>Schedule a Stream:</label>
+    <form onSubmit={handleSubmit}>
+      <h2>Schedule a Stream:</h2>
       <input
         type="text"
-        name="stream-title"
+        id="stream-title"
         onChange={handleChange}
         placeholder="Title Your Stream!"
+        defaultValue={streamState.title}
       />
+      -
       <input
         type="date"
-        name="date"
+        id="date"
         onChange={handleChange}
         placeholder="00/00/00"
+        value={streamState.date}
       />
-      <input type="number" name="time" onChange={handleChange} placeholder="" />
-      <select
-        type="number"
-        name="hours"
+      -
+      <input
+        type="text"
+        id="time"
         onChange={handleChange}
-        placeholder="hours?"
-      >
-        <option value="" disable selected>
-          Select Stream Length
-        </option>
-      </select>
-      <button className="stream-button" onClick={handleClick}>
-        POST
+        placeholder="0:00"
+        value={streamState.time}
+      />
+      -
+      <input
+        type="text"
+        id="hours"
+        onChange={handleChange}
+        placeholder="Add Stream Length"
+        defaultValue={streamState.hours}
+      />
+      <br />
+      <button type="submit" onClick={handleClick}>
+        SCHEDULE
       </button>
-    </div>
+    </form>
   )
 }
 
