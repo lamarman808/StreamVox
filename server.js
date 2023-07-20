@@ -10,6 +10,7 @@ const ScheduleRouter = require('./routes/ScheduleRouter')
 const PORT = process.env.PORT || 3001
 
 const db = require('./db')
+const { Post } = require('./models')
 
 const app = express()
 
@@ -22,6 +23,20 @@ app.use('/auth', AuthRouter)
 app.use('/posts', PostRouter)
 app.use('/game', GameRouter)
 app.use('/schedule', ScheduleRouter)
+
+app.get('/posts', async (req, res) => {
+  let posts = await Post.find({})
+  res.send(posts)
+})
+
+app.post('/posts/new', async (req, res) => {
+  let posts = await Post.create(req.body)
+  res.send(posts)
+})
+
+app.put('/posts/update', async (req, res) => {
+  let posts = await Post.put({})
+})
 
 app.use('/', (req, res) => {
   res.send(`Connected!`)

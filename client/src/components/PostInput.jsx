@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
-import { GetPosts, CreatePost } from '../services/PostServices'
+import { GetPosts } from '../services/PostServices'
 
 const PostInput = (props) => {
   const blankPostState = {
@@ -8,27 +8,27 @@ const PostInput = (props) => {
   }
   const [postState, setPostState] = useState(blankPostState)
 
-  const handlePostSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     if (!postState.body) {
-      await axios.post('http://localhost:3001/posts/new', postState)
+      await axios.post('http://localhost:3001/posts', postState)
       console.log(postState)
       setPostState(blankPostState)
       GetPosts()
     }
   }
 
-  const handlePostChange = (event) => {
+  const handleChange = (event) => {
     setPostState({ ...postState, [event.target.id]: event.target.value })
   }
 
   return (
-    <form onSubmit={handlePostSubmit}>
+    <form onSubmit={handleSubmit}>
       <label htmlFor="body">Flex your Vox:</label>
       <input
         type="text"
         name="post"
-        onChange={props.handlePostChange}
+        onChange={props.handleChange}
         placeholder="Datum for your thoughts?"
       />
       <button className="post-button" onClick={props.CreatePost}>

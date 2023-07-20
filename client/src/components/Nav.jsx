@@ -8,6 +8,7 @@ const Nav = ({ user, handleLogOut }) => {
       <nav>
         <h3>Hey! Listen!</h3>
         <NavLink to="/stream">Stream</NavLink>
+        <NavLink to="/posts">Posts</NavLink>
         <NavLink to="/schedule">Schedule</NavLink>
         <NavLink onClick={handleLogOut}>Log Out</NavLink>
       </nav>

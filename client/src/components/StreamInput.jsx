@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { GetStreams } from '../services/StreamServices'
+import axios from 'axios'
 
 const StreamInput = (props) => {
   const blankStreamState = {
@@ -11,35 +12,46 @@ const StreamInput = (props) => {
 
   const [streamState, setStreamState] = useState(blankStreamState)
 
-  const handleStreamSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     if (!streamState.body) {
-      await axios.post('http://localhost:3001/posts', streamState)
+      await axios.post('http://localhost:3001/schedule', streamState)
       console.log(streamState)
       setStreamState(blankStreamState)
       GetStreams()
     }
   }
 
-  const handleStreamChange = (event) => {
-    setPostState({ ...streamState, [event.target.id]: event.target.value })
+  const handleChange = (event) => {
+    setStreamState({ ...streamState, [event.target.id]: event.target.value })
   }
 
   return (
     <div className="stream-input">
-      <label>Schedule:</label>
+      <label>Schedule a Stream:</label>
       <input
         type="text"
         name="stream-title"
-        onChange={props.handleStreamChange}
+        onChange={handleChange}
         placeholder="Title Your Stream!"
       />
       <input
-        type="datetime-local"
-        name="stream"
-        onChange={props.handleChange}
-        placeholder="title - 00/00/00; 00:00"
+        type="date"
+        name="date"
+        onChange={handleChange}
+        placeholder="00/00/00"
       />
+      <input type="number" name="time" onChange={handleChange} placeholder="" />
+      <select
+        type="number"
+        name="hours"
+        onChange={handleChange}
+        placeholder="hours?"
+      >
+        <option value="" disable selected>
+          Select Stream Length
+        </option>
+      </select>
       <button className="stream-button" onClick={props.addStream}>
         POST
       </button>

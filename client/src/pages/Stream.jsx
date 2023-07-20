@@ -24,7 +24,9 @@ const Stream = ({ user }) => {
   return user ? (
     <div className="grid col-4">
       <header>
+        <button onClick={() => navigate('/schedule/new')}>Add Stream</button>
         <h1>We gaming or talking here?</h1>
+        <button onClick={() => navigate('/posts/new')}>Add Post</button>
       </header>
       {posts.map((post) => (
         <div key={post.id} className="post-card">

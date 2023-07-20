@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react'
 
 const Schedule = ({ user }) => {
   let navigate = useNavigate()
+
   const [streams, setStreams] = useState([])
+  const [streamLikesCount, setStreamLikes] = useState(0)
 
   useEffect(() => {
     const handleStreams = async () => {
@@ -18,12 +20,21 @@ const Schedule = ({ user }) => {
     <div className="grid col-4">
       <header>
         <h1>Stream Schedule</h1>
+        <button onClick={() => navigate('/schedule/new')}>Add Stream</button>
       </header>
       {streams.map((stream) => (
         <div key={stream._id} className="calendar">
           {stream.title}: {stream.date}; {stream.time}; {stream.range}
         </div>
       ))}
+      <button
+        onClick={() =>
+          setStreamLikes((streamLikesCount) => streamLikesCount + 1)
+        }
+        user={user}
+      >
+        Like {streamLikesCount}
+      </button>
     </div>
   ) : (
     <div className="protected">
