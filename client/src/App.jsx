@@ -80,15 +80,15 @@ function App() {
         </Routes>
 
         <div>
-          <PostInput
+          {/* <PostInput
             handleChange={handleChange}
             addStream={addStream}
             makePost={makePost}
             input={input}
             setInput={setInput}
-          />
+          /> */}
         </div>
-        <Posts posts={post} deletePost={deletePost} />
+        {/* <Posts posts={post} deletePost={deletePost} /> */}
       </main>
     </div>
   )
