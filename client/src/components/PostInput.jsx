@@ -1,37 +1,44 @@
 import { useState } from 'react'
-import axios from 'axios'
-import { GetPosts, CreatePost } from '../services/PostServices'
+import Client, { BASE_URL } from '../services/api'
+import { useNavigate } from 'react-router-dom'
 
-const PostInput = (props) => {
+const PostInput = () => {
   const blankPostState = {
     body: ''
   }
   const [postState, setPostState] = useState(blankPostState)
+  let navigate = useNavigate()
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    if (!postState.body) {
-      await axios.post('http://localhost:3001/posts/new', postState)
-      console.log(postState)
-      setPostState(blankPostState)
-      GetPosts()
+    console.log('default prevented!!')
+    try {
+      const newPost = await Client.post(`${BASE_URL}/posts/new`, postState)
+      console.log(newPost)
+      navigate('/posts')
+    } catch (err) {
+      console.error(err)
     }
   }
 
   const handleChange = (event) => {
     setPostState({ ...postState, [event.target.id]: event.target.value })
   }
-
+  const handleClick = () => {
+    console.log('Post Button Clicked!')
+  }
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="body">Flex your Vox:</label>
-      <textarea
+      <input
         type="text"
+        id="body"
         name="post"
         onChange={handleChange}
         placeholder="Datum for your thoughts?"
-      ></textarea>
-      <button type="submit" onClick={CreatePost}>
+        value={postState.body}
+      />
+      <button type="submit" onClick={handleClick}>
         POST
       </button>
     </form>

@@ -8,9 +8,10 @@ import Stream from './pages/Stream'
 import Following from './pages/Following'
 import Followers from './pages/Followers'
 import Posts from './pages/Posts'
+// PostInput may need to be IN pages?
+import PostInput from './components/PostInput'
 import Schedule from './pages/Schedule'
 import { Route, Routes } from 'react-router-dom'
-import PostInput from './components/PostInput'
 import { CheckSession } from './services/Auth'
 import { GetPosts } from './services/PostServices'
 import axios from 'axios'
@@ -72,6 +73,8 @@ function App() {
     <div className="App">
       <Nav user={user} handleLogOut={handleLogOut} />
       <header>Welcome to Stream Vox! Peep game!</header>
+      <br />
+      <br />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -79,7 +82,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/stream" element={<Stream user={user} />} />
           <Route path="/posts" element={<Posts user={user} />} />
-          <Route path="/posts/new" element={<Posts user={user} />} />
+          <Route path="/posts/new" element={<PostInput user={user} />} />
           <Route path="/game" element={<Games user={user} />} />
           <Route path="/schedule" element={<Schedule user={user} />} />
           <Route path="/schedule/new" element={<Schedule user={user} />} />

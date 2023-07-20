@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { GetStreams } from '../services/StreamServices'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const StreamInput = (props) => {
   const blankStreamState = {
@@ -11,6 +12,7 @@ const StreamInput = (props) => {
   }
 
   const [streamState, setStreamState] = useState(blankStreamState)
+  let navigate = useNavigate()
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -19,7 +21,12 @@ const StreamInput = (props) => {
       console.log(streamState)
       setStreamState(blankStreamState)
       GetStreams()
+      navigate('/shcedule')
     }
+  }
+
+  const handleClick = () => {
+    console.log('Stream Button Clicked!')
   }
 
   const handleChange = (event) => {
@@ -52,7 +59,7 @@ const StreamInput = (props) => {
           Select Stream Length
         </option>
       </select>
-      <button className="stream-button" onClick={props.addStream}>
+      <button className="stream-button" onClick={handleClick}>
         POST
       </button>
     </div>
