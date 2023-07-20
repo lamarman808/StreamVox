@@ -23,7 +23,7 @@ const Posts = ({ user }) => {
         <button onClick={() => navigate('/posts/new')}>Say Something!</button>
       </header>
       {posts.map((post) => (
-        <div key={post._id} className="post-card">
+        <div key={post.id} className="post-section">
           {post.body}
           <div>
             <button

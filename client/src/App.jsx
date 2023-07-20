@@ -76,6 +76,7 @@ function App() {
           <Route path="/login" element={<LogIn setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/stream" element={<Stream user={user} />} />
+          <Route path="/posts" element={<Posts user={user} />} />
           <Route path="/schedule" element={<Schedule user={user} />} />
         </Routes>
 
