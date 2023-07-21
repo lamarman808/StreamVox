@@ -8,8 +8,6 @@ const Stream = ({ user }) => {
 
   const [posts, setPosts] = useState([])
   const [streams, setStreams] = useState([])
-  // const [postLikesCount, setPostLikes] = useState(0)
-  // const [streamLikesCount, setStreamLikes] = useState(0)
 
   useEffect(() => {
     const handlePosts = async () => {
