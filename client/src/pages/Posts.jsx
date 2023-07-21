@@ -1,11 +1,15 @@
 import { useNavigate } from 'react-router-dom'
-import { GetPosts } from '../services/PostServices'
+import { GetPosts, UpdatePost, DeletePost } from '../services/PostServices'
+import Client, { BASE_URL } from '../services/api'
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 const Posts = ({ user }) => {
   let navigate = useNavigate()
+  let { postId } = useParams()
 
   const [posts, setPosts] = useState([])
+  const [isEditing, setIsEditing] = useState(false)
 
   useEffect(() => {
     const handlePosts = async () => {
@@ -14,6 +18,17 @@ const Posts = ({ user }) => {
     }
     handlePosts()
   }, [])
+
+  const deletePost = async (event) => {
+    event.preventDefault()
+    try {
+      let timeLine = await delete `${BASE_URL}/posts/:_id`
+      timeLine.splice(posts, 1)
+      setPosts(timeLine)
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return user ? (
     <div className="grid col-4">
@@ -26,6 +41,9 @@ const Posts = ({ user }) => {
           {post.body}
         </div>
       ))}
+      <button type="submit" onClick={deletePost}>
+        Delete
+      </button>
     </div>
   ) : (
     <div className="protected">

@@ -49,6 +49,7 @@ function App() {
     calendar.splice(stream, 1)
     setSkedge(calendar)
   }
+
   const deletePost = (stream) => {
     let timeLine = [...post]
     timeLine.splice(stream, 1)
