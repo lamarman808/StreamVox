@@ -43,15 +43,6 @@ const Stream = ({ user }) => {
           {stream.title}: {stream.date}; {stream.time}; {stream.range}
         </div>
       ))}
-      {/* <div>
-        <button
-          onClick={() =>
-            setStreamLikes((streamLikesCount) => streamLikesCount + 1)
-          }
-        >
-          Like {streamLikesCount}
-        </button>
-      </div> */}
     </div>
   ) : (
     <div className="protected">
