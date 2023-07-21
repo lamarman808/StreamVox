@@ -6,7 +6,6 @@ const Posts = ({ user }) => {
   let navigate = useNavigate()
 
   const [posts, setPosts] = useState([])
-  const [postLikesCount, setPostLikes] = useState(0)
 
   useEffect(() => {
     const handlePosts = async () => {
@@ -25,16 +24,6 @@ const Posts = ({ user }) => {
       {posts.map((post) => (
         <div key={post._id} className="post-section">
           {post.body}
-          <div>
-            <button
-              onClick={() =>
-                setPostLikes((postLikesCount) => postLikesCount + 1)
-              }
-              user={user}
-            >
-              Like {postLikesCount}
-            </button>
-          </div>
         </div>
       ))}
     </div>

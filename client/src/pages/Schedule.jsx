@@ -6,7 +6,6 @@ const Schedule = ({ user }) => {
   let navigate = useNavigate()
 
   const [streams, setStreams] = useState([])
-  const [streamLikesCount, setStreamLikes] = useState(0)
 
   useEffect(() => {
     const handleStreams = async () => {
@@ -27,14 +26,6 @@ const Schedule = ({ user }) => {
           {stream.title}: {stream.date}; {stream.time}; {stream.range}
         </div>
       ))}
-      <button
-        onClick={() =>
-          setStreamLikes((streamLikesCount) => streamLikesCount + 1)
-        }
-        user={user}
-      >
-        Like {streamLikesCount}
-      </button>
     </div>
   ) : (
     <div className="protected">

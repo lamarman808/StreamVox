@@ -8,8 +8,8 @@ const Stream = ({ user }) => {
 
   const [posts, setPosts] = useState([])
   const [streams, setStreams] = useState([])
-  const [postLikesCount, setPostLikes] = useState(0)
-  const [streamLikesCount, setStreamLikes] = useState(0)
+  // const [postLikesCount, setPostLikes] = useState(0)
+  // const [streamLikesCount, setStreamLikes] = useState(0)
 
   useEffect(() => {
     const handlePosts = async () => {
@@ -36,7 +36,7 @@ const Stream = ({ user }) => {
           ) : (
             <p>{post.body}</p>
           )}
-          <div>
+          {/* <div>
             <button
               onClick={() =>
                 setPostLikes((postLikesCount) => postLikesCount + 1)
@@ -44,16 +44,17 @@ const Stream = ({ user }) => {
             >
               Like {postLikesCount}
             </button>
-          </div>
+          </div> */}
         </div>
       ))}
+      <br />
       <h2>Scheduled Streams</h2>
       {streams.map((stream) => (
         <div key={stream._id} className="calendar-card">
           {stream.title}: {stream.date}; {stream.time}; {stream.range}
         </div>
       ))}
-      <div>
+      {/* <div>
         <button
           onClick={() =>
             setStreamLikes((streamLikesCount) => streamLikesCount + 1)
@@ -61,7 +62,7 @@ const Stream = ({ user }) => {
         >
           Like {streamLikesCount}
         </button>
-      </div>
+      </div> */}
     </div>
   ) : (
     <div className="protected">

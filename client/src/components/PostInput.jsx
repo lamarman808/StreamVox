@@ -17,7 +17,7 @@ const PostInput = () => {
       console.log(newPost)
       navigate('/posts')
     } catch (err) {
-      console.error(err)
+      console.log(err)
     }
   }
 

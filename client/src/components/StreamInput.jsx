@@ -23,7 +23,7 @@ const StreamInput = () => {
       console.log(newStream)
       navigate('/schedule')
     } catch (err) {
-      console.error(err)
+      console.log(err)
     }
   }
 
@@ -40,7 +40,7 @@ const StreamInput = () => {
       <h2>Schedule a Stream:</h2>
       <input
         type="text"
-        id="stream-title"
+        id="title"
         onChange={handleChange}
         placeholder="Title Your Stream!"
         defaultValue={streamState.title}
