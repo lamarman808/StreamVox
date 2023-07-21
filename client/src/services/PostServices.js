@@ -18,17 +18,17 @@ export const CreatePost = async () => {
   }
 }
 
-export const UpdatePost = async () => {
+export const UpdatePost = async (post_id, data) => {
   try {
-    const res = await Client.update('/posts')
+    const res = await Client.put(`/posts/${post_id}`, data)
     return res.data
   } catch (error) {
     throw error
   }
 }
-export const DeletePost = async () => {
+export const DeletePost = async (post_id) => {
   try {
-    const res = await Client.delete('/posts')
+    const res = await Client.delete(`/posts/${post_id}`)
     return res.data
   } catch (error) {
     throw error

@@ -2,30 +2,46 @@ import { useNavigate } from 'react-router-dom'
 import { GetPosts, UpdatePost, DeletePost } from '../services/PostServices'
 import Client, { BASE_URL } from '../services/api'
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import axios from 'axios'
 
 const Posts = ({ user }) => {
   let navigate = useNavigate()
-  // let { postId } = useParams()
 
+  const newPostState = {
+    body: ''
+  }
   const [posts, setPosts] = useState([])
+  const [postState, setPostState] = useState(newPostState)
   const [isEditing, setIsEditing] = useState(false)
-
+  const [deleting, setDelete] = useState(false)
   useEffect(() => {
     const handlePosts = async () => {
       const postData = await GetPosts()
       setPosts(postData)
     }
     handlePosts()
-  }, [])
+  }, [isEditing, deleting])
 
   const deletePost = async (id) => {
-    const timeLine = [...posts]
-    timeLine.splice(posts.id, 1)
-    setPosts(timeLine)
-    // await DeletePost(posts.id)
-    // setPosts(posts.filter((posts) => posts._id !== id))
+    try {
+      await DeletePost(id)
+      setDelete(!deleting)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const updatePost = async (id) => {
+    try {
+      console.log(postState)
+      await UpdatePost(id, postState)
+      setIsEditing(false)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const handleChange = (event) => {
+    setPostState({ ...postState, [event.target.id]: event.target.value })
   }
 
   return user ? (
@@ -36,10 +52,38 @@ const Posts = ({ user }) => {
       </header>
       {posts.map((post) => (
         <div key={post._id} className="post-section">
-          {post.body}
+          {!isEditing ? (
+            <>{post.body}</>
+          ) : (
+            <form onSubmit={updatePost}>
+              <label htmlFor="body">Redo?:</label>
+              <input
+                type="text"
+                id="body"
+                name="post"
+                onChange={handleChange}
+                placeholder="Datum for your thoughts?"
+                value={postState.body}
+              />
+              <button type="submit" onClick={() => updatePost(post._id)}>
+                POST
+              </button>
+            </form>
+          )}
+          <div>
+            <button
+              onClick={() => {
+                setIsEditing(true)
+                setPostState(post)
+              }}
+            >
+              EDIT
+            </button>
+            <br /> <br />
+            <button onClick={() => deletePost(post._id)}>Delete</button>
+          </div>
         </div>
       ))}
-      <button onClick={() => deletePost(posts._id)}>Delete</button>
     </div>
   ) : (
     <div className="protected">

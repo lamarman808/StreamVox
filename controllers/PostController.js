@@ -21,6 +21,7 @@ const CreatePost = async (req, res) => {
 
 const UpdatePost = async (req, res) => {
   try {
+    console.log(req.body)
     const post = await Post.findByIdAndUpdate(req.params.post_id, req.body, {
       new: true
     })
