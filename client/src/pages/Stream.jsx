@@ -34,15 +34,6 @@ const Stream = ({ user }) => {
           ) : (
             <p>{post.body}</p>
           )}
-          {/* <div>
-            <button
-              onClick={() =>
-                setPostLikes((postLikesCount) => postLikesCount + 1)
-              }
-            >
-              Like {postLikesCount}
-            </button>
-          </div> */}
         </div>
       ))}
       <br />
