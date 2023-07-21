@@ -18,18 +18,18 @@ export const CreateStream = async () => {
   }
 }
 
-export const UpdateStream = async () => {
+export const UpdateStream = async (stream_id, data) => {
   try {
-    const res = await Client.update('/:stream_id')
+    const res = await Client.update(`/schedule/${stream_id}`, data)
     return res.data
   } catch (error) {
     throw error
   }
 }
 
-export const DeleteStream = async () => {
+export const DeleteStream = async (stream_id) => {
   try {
-    const res = await Client.delete('/:stream_id')
+    const res = await Client.delete(`/schedule/${stream_id}`)
     return res.data
   } catch (error) {
     throw error

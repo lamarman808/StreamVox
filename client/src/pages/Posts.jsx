@@ -9,10 +9,12 @@ const Posts = ({ user }) => {
   const newPostState = {
     body: ''
   }
+
   const [posts, setPosts] = useState([])
   const [postState, setPostState] = useState(newPostState)
   const [isEditing, setIsEditing] = useState(false)
   const [deleting, setDelete] = useState(false)
+
   useEffect(() => {
     const handlePosts = async () => {
       const postData = await GetPosts()
@@ -60,14 +62,11 @@ const Posts = ({ user }) => {
               <input
                 type="text"
                 id="body"
-                name="post"
                 onChange={handleChange}
                 placeholder="Datum for your thoughts?"
                 value={postState.body}
               />
-              <button type="submit" onClick={() => updatePost(post._id)}>
-                POST
-              </button>
+              <button type="submit">POST</button>
             </form>
           )}
           <div>

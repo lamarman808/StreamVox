@@ -31,7 +31,6 @@ const PostInput = () => {
       <input
         type="text"
         id="body"
-        name="post"
         onChange={handleChange}
         placeholder="Datum for your thoughts?"
         value={postState.body}

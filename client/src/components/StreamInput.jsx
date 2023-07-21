@@ -47,7 +47,7 @@ const StreamInput = () => {
       />
       -
       <input
-        type="date"
+        type="text"
         id="date"
         onChange={handleChange}
         placeholder="00/00/00"

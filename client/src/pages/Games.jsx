@@ -6,8 +6,6 @@ const Games = ({ user }) => {
   let navigate = useNavigate()
 
   const [games, setGames] = useState([])
-  const [gameLikeCount, setGameLikes] = useState(0)
-
   useEffect(() => {
     const handleGames = async () => {
       const gameData = await GetGames()
@@ -29,14 +27,6 @@ const Games = ({ user }) => {
           {game.played}
           <br />
           {game.thoughts}
-          <div>
-            <button
-              onClick={() => setGameLikes((gameLikeCount) => gameLikeCount + 1)}
-              user={user}
-            >
-              Like {gameLikeCount}
-            </button>
-          </div>
         </div>
       ))}
     </div>
