@@ -3,10 +3,11 @@ import { GetPosts, UpdatePost, DeletePost } from '../services/PostServices'
 import Client, { BASE_URL } from '../services/api'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const Posts = ({ user }) => {
   let navigate = useNavigate()
-  let { postId } = useParams()
+  // let { postId } = useParams()
 
   const [posts, setPosts] = useState([])
   const [isEditing, setIsEditing] = useState(false)
@@ -19,15 +20,12 @@ const Posts = ({ user }) => {
     handlePosts()
   }, [])
 
-  const deletePost = async (event) => {
-    event.preventDefault()
-    try {
-      let timeLine = await delete `${BASE_URL}/posts/:_id`
-      timeLine.splice(posts, 1)
-      setPosts(timeLine)
-    } catch (err) {
-      console.log(err)
-    }
+  const deletePost = async (id) => {
+    const timeLine = [...posts]
+    timeLine.splice(posts.id, 1)
+    setPosts(timeLine)
+    // await DeletePost(posts.id)
+    // setPosts(posts.filter((posts) => posts._id !== id))
   }
 
   return user ? (
@@ -41,9 +39,7 @@ const Posts = ({ user }) => {
           {post.body}
         </div>
       ))}
-      <button type="submit" onClick={deletePost}>
-        Delete
-      </button>
+      <button onClick={() => deletePost(posts._id)}>Delete</button>
     </div>
   ) : (
     <div className="protected">
